@@ -1,6 +1,6 @@
 import MainNav from '@/components/Navbar/Navbar'
 import About from '@/sections/About/About'
-import Skills from '@/sections/Skills'
+import Skills from '@/sections/Skills/Skills'
 import Projects from '@/sections/Projects'
 import Header from '@/sections/Header/Header'
 
