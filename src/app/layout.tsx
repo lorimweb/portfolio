@@ -1,23 +1,31 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MainNav from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Full Stack Developer Portfolio',
-  description: 'Portfolio showcasing my full stack development skills and projects',
-}
+  title: 'Clenilson Lopes - Portfolio',
+  description: 'Full Stack Developer Portfolio',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <MainNav />
+        <main>
+          {children}
+        </main>
+        <Footer />
+      </body>
     </html>
-  )
+  );
 }
