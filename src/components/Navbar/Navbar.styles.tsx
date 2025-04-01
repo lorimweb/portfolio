@@ -18,4 +18,8 @@ export const StyledNavLink = styled(Nav.Link)`
 export const StyledBrand = styled(Navbar.Brand)`
   font-weight: bold;
   font-size: 1.5rem;
+  color: #fff;
+  &:hover {
+    color: #fff;
+  }
 `;
