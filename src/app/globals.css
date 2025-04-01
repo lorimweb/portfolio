@@ -1,0 +1,43 @@
+:root {
+  --max-width: 1200px;
+  --border-radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding-top: 56px; /* Account for fixed navbar */
+}
+
+section {
+  padding: 80px 0;
+}
+
+.hero {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('/vercel.svg') center/cover;
+  margin-top: -56px; /* Offset the body padding */
+}
+
+/* Smooth transitions for interactive elements */
+.btn, .nav-link {
+  transition: all 0.3s ease;
+}
+
+/* Card hover effects */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
