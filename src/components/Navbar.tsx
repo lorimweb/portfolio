@@ -5,7 +5,7 @@ export default function MainNav() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="fixed-top">
       <Container>
-        <Navbar.Brand href="#home">Portfolio</Navbar.Brand>
+        <Navbar.Brand href="#home">Clenilson Lopes</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
