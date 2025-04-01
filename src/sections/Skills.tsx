@@ -3,9 +3,36 @@ import { Container, Row, Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const skills = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Bootstrap', 'CSS/SASS'] },
-  { category: 'Backend', items: ['Node.js', 'Express', 'Python', 'SQL', 'MongoDB'] },
-  { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Jest', 'CI/CD'] }
+  { 
+    category: 'Frontend', 
+    items: [
+      { name: 'React', percentage: 90 },
+      { name: 'Next.js', percentage: 85 },
+      { name: 'TypeScript', percentage: 85 },
+      { name: 'Bootstrap', percentage: 80 },
+      { name: 'CSS/SASS', percentage: 85 }
+    ]
+  },
+  { 
+    category: 'Backend', 
+    items: [
+      { name: 'Node.js', percentage: 85 },
+      { name: 'Express', percentage: 80 },
+      { name: 'Python', percentage: 75 },
+      { name: 'SQL', percentage: 80 },
+      { name: 'MongoDB', percentage: 75 }
+    ]
+  },
+  { 
+    category: 'Tools', 
+    items: [
+      { name: 'Git', percentage: 90 },
+      { name: 'Docker', percentage: 80 },
+      { name: 'AWS', percentage: 75 },
+      { name: 'Jest', percentage: 80 },
+      { name: 'CI/CD', percentage: 85 }
+    ]
+  }
 ];
 
 const SkillsSection = styled.section`
@@ -44,13 +71,35 @@ const SkillList = styled.ul`
 `;
 
 const SkillItem = styled.li`
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: #666;
   font-size: 1rem;
 
   &:last-child {
     margin-bottom: 0;
   }
+`;
+
+const ProgressBarContainer = styled.div`
+  width: 100%;
+  height: 8px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+`;
+
+const ProgressBarFill = styled.div<{ width: number }>`
+  height: 100%;
+  border-radius: 4px;
+  background-color: #2c3e50;
+  width: ${props => props.width}%;
+  transition: width 0.6s ease;
+`;
+
+const SkillName = styled.span`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export default function Skills() {
@@ -66,7 +115,13 @@ export default function Skills() {
                 <SkillList>
                   {skillGroup.items.map((skill, idx) => (
                     <SkillItem key={idx}>
-                      {skill}
+                      <SkillName>
+                        {skill.name}
+                        <span>{skill.percentage}%</span>
+                      </SkillName>
+                      <ProgressBarContainer>
+                        <ProgressBarFill width={skill.percentage} />
+                      </ProgressBarContainer>
                     </SkillItem>
                   ))}
                 </SkillList>
