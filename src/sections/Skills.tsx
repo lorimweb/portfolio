@@ -1,5 +1,6 @@
 'use client';
 import { Container, Row, Col } from 'react-bootstrap';
+import styled from 'styled-components';
 
 const skills = [
   { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Bootstrap', 'CSS/SASS'] },
@@ -7,28 +8,73 @@ const skills = [
   { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Jest', 'CI/CD'] }
 ];
 
+const SkillsSection = styled.section`
+  padding: 5rem 0;
+  background-color: #f8f9fa;
+`;
+
+const SkillsTitle = styled.h2`
+  margin-bottom: 3rem;
+  color: #2c3e50;
+  font-weight: bold;
+`;
+
+const SkillCard = styled.div`
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+`;
+
+const SkillCategory = styled.h3`
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+`;
+
+const SkillList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
+`;
+
+const SkillItem = styled.li`
+  margin-bottom: 0.75rem;
+  color: #666;
+  font-size: 1rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
+
 export default function Skills() {
   return (
-    <section id="skills" className="py-5 bg-light">
+    <SkillsSection id="skills">
       <Container>
-        <h2 className="text-center mb-5">Skills</h2>
+        <SkillsTitle className="text-center">Skills</SkillsTitle>
         <Row>
           {skills.map((skillGroup, index) => (
             <Col key={index} md={4} className="mb-4">
-              <div className="p-4 bg-white rounded shadow-sm">
-                <h3 className="h5 mb-4">{skillGroup.category}</h3>
-                <ul className="list-unstyled">
+              <SkillCard>
+                <SkillCategory>{skillGroup.category}</SkillCategory>
+                <SkillList>
                   {skillGroup.items.map((skill, idx) => (
-                    <li key={idx} className="mb-2">
+                    <SkillItem key={idx}>
                       {skill}
-                    </li>
+                    </SkillItem>
                   ))}
-                </ul>
-              </div>
+                </SkillList>
+              </SkillCard>
             </Col>
           ))}
         </Row>
       </Container>
-    </section>
+    </SkillsSection>
   );
 }
