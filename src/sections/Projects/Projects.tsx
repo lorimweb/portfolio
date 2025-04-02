@@ -1,5 +1,6 @@
 'use client';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
+import { ProjectsSection, ProjectsTitle, ProjectCard, TechBadge } from './Projects.styles';
 
 const projects = [
   {
@@ -24,30 +25,30 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-5">
+    <ProjectsSection id="projects">
       <Container>
-        <h2 className="text-center mb-5">Featured Projects</h2>
+        <ProjectsTitle>Featured Projects</ProjectsTitle>
         <Row>
           {projects.map((project, index) => (
             <Col key={index} md={4} className="mb-4">
-              <Card className="h-100">
-                <Card.Img variant="top" src={project.image} alt={project.title} />
-                <Card.Body>
-                  <Card.Title>{project.title}</Card.Title>
-                  <Card.Text>{project.description}</Card.Text>
+              <ProjectCard>
+                <ProjectCard.Img variant="top" src={project.image} alt={project.title} />
+                <ProjectCard.Body>
+                  <ProjectCard.Title>{project.title}</ProjectCard.Title>
+                  <ProjectCard.Text>{project.description}</ProjectCard.Text>
                   <div className="mt-3">
                     {project.tech.map((tech, idx) => (
-                      <span key={idx} className="badge bg-secondary me-2">
+                      <TechBadge key={idx}>
                         {tech}
-                      </span>
+                      </TechBadge>
                     ))}
                   </div>
-                </Card.Body>
-              </Card>
+                </ProjectCard.Body>
+              </ProjectCard>
             </Col>
           ))}
         </Row>
       </Container>
-    </section>
+    </ProjectsSection>
   );
 }
